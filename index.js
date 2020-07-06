@@ -1,26 +1,13 @@
-function mergeSort(array){
-  let split=Math.floor(array.length/2);
-  if(!split){
-    return array;
-  }
-  let left=array.slice(0,split);
-  let right=array.slice(split);
+const {bubbleSort}=require("./bubbleSort");
+const {selectionSort}=require("./selectionSort");
+const {mergeSort}=require("./mergeSort");
+const {quickSort}=require("./quickSort");
+const {insertionSort}=require("./insertionSort");
 
-  return merge(mergeSort(left),mergeSort(right));
 
-}
-function merge(left,right){
-  let leftIndex=0,rightIndex=0,result=[];
-  while(leftIndex<left.length && rightIndex<right.length){
-    if(left[leftIndex]<right[rightIndex]){
-      result.push(left[leftIndex]);
-      leftIndex++;
-    }else{
-      result.push(right[rightIndex]);
-      rightIndex++;
-    }
-  }
-  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
-}
+console.log("Bubble Sort:",bubbleSort([3,4,5,2,1]));
+console.log("Merge Sort:",mergeSort([3,4,5,2,1]));
+console.log("Selection Sort:",selectionSort([3,4,5,2,1]));
+console.log("Insertion Sort:",insertionSort([3,4,5,2,1]));
+console.log("Quick Sort:",quickSort([3,4,5,2,1]));
 
-mergeSort([3,4,5,2,1]);
